@@ -1,4 +1,3 @@
-from datetime import date
 import holidays
 import json
 from fastapi import FastAPI
