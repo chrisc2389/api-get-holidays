@@ -15,6 +15,8 @@ app = FastAPI()
 @app.post("/get-state-holidays")
 async def get_state_holidays(body: Body):
     data = {}
+    print("STATE -"+body.state)
+    print("YEAR -"+body.year)
     us_holidays = holidays.UnitedStates(state=body.state,years=body.year)
 
     # Print all holidays in the year 2024
