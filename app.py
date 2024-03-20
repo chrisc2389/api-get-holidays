@@ -3,7 +3,7 @@ import holidays
 import json
 from fastapi import FastAPI
 from pydantic import BaseModel
-
+import logging
 
 
 class Body(BaseModel):
@@ -15,8 +15,8 @@ app = FastAPI()
 @app.post("/get-state-holidays")
 async def get_state_holidays(body: Body):
     data = {}
-    print("STATE -"+body.state)
-    print("YEAR -"+body.year)
+    logging.info("STATE -"+body.state)
+    logging.info("YEAR -"+body.year)
     us_holidays = holidays.UnitedStates(state=body.state,years=body.year)
 
     # Print all holidays in the year 2024
